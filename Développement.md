@@ -36,8 +36,10 @@ INSERT INTO typeEmploye (code, nom) VALUES ('C', 'Comptable'), ('V', 'Visiteur')
 --Ajouter un nouveau champ 'TypeEmploye' à la table 'employe'
 ALTER TABLE employe ADD COLUMN TypeEmploye CHAR(1), ADD CONSTRAINT fk_typeEmploye FOREIGN KEY (TypeEmploye) REFERENCES typeEmploye(code);
 
---Attribuer la valeur C dans le champ 'TypeEmploye' de la table 'employe' quand l'id = 1
-UPDATE employe SET TypeEmploye = 'C' WHERE id = 1;
+--Ajouter les personnes qui sont des comptables (j'en ai mis 3 pour ma part)
+INSERT INTO employe (id, nom, prenom, adresse, ville, cp, dateEmbauche, login, mdp, TypeEmploye) VALUES ('a56', 'Martin', 'Alice', '45 Avenue des Champs', 'Paris', '75008', CURDATE(), 'amartin', 'AMartin', 'C');
+INSERT INTO employe (id, nom, prenom, adresse, ville, cp, dateEmbauche, login, mdp, TypeEmploye) VALUES ('b22', 'Durand', 'Pierre', '22 Rue Victor Hugo', 'Lyon', '69002', CURDATE(), 'pdurand', 'PDurand', 'C');
+INSERT INTO employe (id, nom, prenom, adresse, ville, cp, dateEmbauche, login, mdp, TypeEmploye) VALUES (2, 'Dupont', 'Jean', '123 Rue de Paris', 'Paris', '75001', CURDATE(), 'jdupont', 'JDupont', 'C');"
 
 --Afficher la table 'employe'
 SELECT * FROM employe;
